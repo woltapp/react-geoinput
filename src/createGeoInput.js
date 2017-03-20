@@ -1,5 +1,6 @@
-/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/forbid-prop-types, react/no-find-dom-node */
 import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import getDisplayName from 'react-display-name';
 
 import { geocodeByAddress } from './utils';
@@ -76,6 +77,17 @@ function createGeoInput(options = defaultOptions) {
 
     componentDidMount() {
       this.autocompleteService = new window.google.maps.places.AutocompleteService();
+      document.addEventListener('click', this.onDocumentClick, false);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener('click', this.onDocumentClick, false);
+    }
+
+    onDocumentClick = (event) => {
+      if (!findDOMNode(this).contains(event.target)) {
+        this.setState({ predictions: [] });
+      }
     }
 
     loadPredictions = (input) => {
