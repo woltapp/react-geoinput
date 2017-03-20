@@ -4,34 +4,46 @@ import cx from 'classnames';
 import PredictiveInput from './PredictiveInput';
 import styles from './DefaultGeoInput.css';
 
+export const formatLatLng = (coordinates, precision = 4) =>
+  `${coordinates.lat.toFixed(precision)}°N ${coordinates.lng.toFixed(precision)}° E`;
+
+const rawVal = val => val;
+
 const geoDestinationFields = [
   {
     label: 'Street',
     name: 'street',
+    render: rawVal,
   },
   {
     label: 'Street Number',
     name: 'streetNumber',
+    render: rawVal,
   },
   {
     label: 'Subpremise',
     name: 'subpremise',
+    render: rawVal,
   },
   {
     label: 'City',
     name: 'city',
+    render: rawVal,
   },
   {
     label: 'Country',
     name: 'country',
+    render: rawVal,
   },
   {
     label: 'Postal Code',
     name: 'postalCode',
+    render: rawVal,
   },
   {
     label: 'Coordinates',
-    name: 'Coordinates',
+    name: 'location',
+    render: formatLatLng,
   },
 ];
 
@@ -75,7 +87,9 @@ const DefaultGeoInput = ({
                 </td>
 
                 <td>
-                  {geoDestinationInput.value[field.name] || '-'}
+                  {geoDestinationInput.value[field.name]
+                    ? field.render(geoDestinationInput.value[field.name])
+                    : '-'}
                 </td>
               </tr>
             ))}
