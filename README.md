@@ -9,8 +9,8 @@
 
 ## Features
 
-* Suggestion of locations
-* Address geocoding
+* Suggestion of locations with Google Maps API
+* Address geocoding with Google Maps API
 * Customizable debounced input
 * Customizable suggestion serialization and rendering
 * Customizable geo destination serialization and rendering
@@ -33,11 +33,66 @@ npm start
 
 ## What problem does the library solve?
 
-TODO
+React-geoinput makes it a breeze to combine geolocation suggestion
+and geocoding an address
 
 ## Examples
 
-TODO
+#### Simple
+
+```jsx
+import React, { Component } from 'react';
+import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
+
+class Example extends Component {
+  state = {
+    address: '',
+    geoDestination: '',
+  }
+
+  onAddressChange = value => this.setState({ address: value })
+  onGeoDestinationChange = value => this.setState({ geoDestination: value })
+
+  render() {
+    return (
+      <div>
+        <DemoInput
+          addressInput={{
+            onChange: this.onAddressChange,
+            value: this.state.address,
+          }}
+          geoDestinationInput={{
+            onChange: this.onGeoDestinationChange,
+            value: this.state.geoDestination,
+          }}
+        />
+      </div>
+    );
+  }
+}
+```
+
+#### Usage with Redux-form
+
+```jsx
+import React, { Component } from 'react';
+import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
+
+const GeoInput = reactGeoInput()(DefaultGeoInput);
+
+const GeoField = fields => (
+  <GeocodeInput
+    addressInput={fields.address.input}
+    geoDestinationInput={fields.destination.input}
+  />
+);
+```
+
+Use with `redux-form`'s `Fields` component:
+
+```jsx
+<Fields names={['address', 'destination']} component={GeoField} />
+```
 
 ## API Documentation
 
