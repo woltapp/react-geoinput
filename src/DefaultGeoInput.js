@@ -48,7 +48,7 @@ const DefaultGeoInput = ({
   <div className={cx(className, styles.root)} style={style}>
     <PredictiveInput
       {...addressInput}
-      className={styles.addressInput}
+      className={cx(addressInput.className, styles.addressInput)}
       activePredictionId={activeIndex}
       predictions={predictions ? predictions.map((prediction, index) => ({
         id: index,
@@ -59,7 +59,7 @@ const DefaultGeoInput = ({
     />
 
     {!!loadingGeoDestination && (
-      <div className={styles.loadingContainer}>
+      <div className={styles.loadingGeoDestination}>
         Loading geolocation...
       </div>
     )}

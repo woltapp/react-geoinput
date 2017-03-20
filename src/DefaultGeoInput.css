@@ -2,6 +2,10 @@
   margin-top: 10px;
 }
 
+.loadingGeoDestination {
+  margin-top: 10px;
+}
+
 .geoDestinationTable {
   border: 1px solid lightgrey;
 }
