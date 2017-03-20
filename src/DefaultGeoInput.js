@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
-import PredictiveInput from './PredictiveInput';
+import GeoAddressInput from './GeoAddressInput';
 import styles from './DefaultGeoInput.css';
 
 export const formatLatLng = (coordinates, precision = 4) =>
@@ -58,16 +58,12 @@ const DefaultGeoInput = ({
   style,
 }) => (
   <div className={cx(className, styles.root)} style={style}>
-    <PredictiveInput
+    <GeoAddressInput
       {...addressInput}
       className={cx(addressInput.className, styles.addressInput)}
-      activePredictionId={activeIndex}
-      predictions={predictions ? predictions.map((prediction, index) => ({
-        id: index,
-        label: `${prediction.structured_formatting.main_text},
-          ${prediction.structured_formatting.secondary_text}`,
-        onClick: () => onPredictionClick(index),
-      })) : undefined}
+      predictions={predictions}
+      activeIndex={activeIndex}
+      onPredictionClick={onPredictionClick}
     />
 
     {!!loadingGeoDestination && (

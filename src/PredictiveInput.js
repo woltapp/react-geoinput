@@ -10,16 +10,18 @@ const PredictiveInput = ({
   containerClassName,
   containerStyle,
   predictions,
+  predictionsClassName,
+  predictionItemClassName,
   ...rest
 }) => (
   <div className={cx(containerClassName, styles.root)} style={containerStyle}>
     <DebounceInput {...rest} debounceTimeout={300} className={cx(className, styles.input)} />
 
     {predictions && !!predictions.length && (
-      <div className={styles.predictions}>
+      <div className={cx(styles.predictions, predictionsClassName)}>
         {predictions.map(prediction => (
           <div
-            className={cx(styles.prediction, {
+            className={cx(styles.prediction, predictionItemClassName, {
               [styles.activePrediction]: activePredictionId === prediction.id,
             })}
             key={prediction.id}
@@ -43,6 +45,8 @@ PredictiveInput.propTypes = {
     label: PropTypes.node,
     onClick: PropTypes.func,
   })),
+  predictionsClassName: PropTypes.string,
+  predictionItemClassName: PropTypes.string,
 };
 
 export default PredictiveInput;

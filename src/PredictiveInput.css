@@ -3,8 +3,7 @@
   position: relative;
 }
 
-.input {
-}
+.input {}
 
 .predictions {
   width: 100%;
@@ -14,7 +13,7 @@
 
   background-color: white;
   border-radius: 3px;
-  box-shadow: 0 1px 1px 0 rgba(32, 32, 36, 0.12), 0 2px 4px 0 rgba(32, 32, 36, 0.08);
+  box-shadow: 0 1px 3px 0 rgba(32, 32, 36, 0.12), 0 2px 4px 0 rgba(32, 32, 36, 0.08);
 }
 
 .prediction {
@@ -23,5 +22,5 @@
 }
 
 .predictions:not(:hover) .activePrediction, .prediction:hover {
-  background-color: #ddd;
+  background-color: #eee;
 }
