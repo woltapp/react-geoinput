@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
 
-import { createGeoInput, DefaultGeoInput } from '../src/index';
 import styles from './Demo.css';
 
 const DemoInput = createGeoInput()(DefaultGeoInput);

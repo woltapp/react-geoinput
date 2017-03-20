@@ -10,7 +10,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-geoinput': './src/index',
+      'react-geoinput': path.resolve(__dirname, 'src/index.js'),
     },
   },
   output: {
