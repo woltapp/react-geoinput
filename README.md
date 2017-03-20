@@ -5,6 +5,17 @@
 
 > Description here.
 
+<img src="demo.gif" alt="react-geoinput example" />
+
+## Features
+
+* Suggestion of locations
+* Address geocoding
+* Customizable debounced input
+* Customizable suggestion serialization and rendering
+* Customizable geo destination serialization and rendering
+* Standard `input` interface (compatible with `redux-form`)
+
 ## Install
 
 ```
