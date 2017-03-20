@@ -51,7 +51,9 @@ const DefaultGeoInput = ({
   className,
   addressInput,
   geoDestinationInput,
+  geoDestinationTableClassName,
   loadingGeoDestination,
+  loadingElement,
   predictions,
   activeIndex,
   onPredictionClick,
@@ -66,15 +68,11 @@ const DefaultGeoInput = ({
       onPredictionClick={onPredictionClick}
     />
 
-    {!!loadingGeoDestination && (
-      <div className={styles.loadingGeoDestination}>
-        Loading geolocation...
-      </div>
-    )}
+    {!!loadingGeoDestination && loadingElement}
 
     {!loadingGeoDestination && geoDestinationInput.value && (
       <div className={styles.geoDestionation}>
-        <table className={styles.geoDestinationTable}>
+        <table className={cx(geoDestinationTableClassName, styles.geoDestinationTable)}>
           <tbody>
             {geoDestinationFields.map(field => (
               <tr key={field.label}>
@@ -101,12 +99,20 @@ DefaultGeoInput.propTypes = {
   addressInput: PropTypes.object.isRequired,
   className: PropTypes.string,
   geoDestinationInput: PropTypes.object.isRequired,
+  geoDestinationTableClassName: PropTypes.string,
+  loadingElement: PropTypes.node,
   loadingGeoDestination: PropTypes.bool,
   onPredictionClick: PropTypes.func.isRequired,
   predictions: PropTypes.array.isRequired,
   style: PropTypes.object,
 };
 
-DefaultGeoInput.defaultProps = {};
+DefaultGeoInput.defaultProps = {
+  loadingElement: (
+    <div className={styles.loadingGeoDestination}>
+      Loading geolocation...
+    </div>
+  ),
+};
 
 export default DefaultGeoInput;
