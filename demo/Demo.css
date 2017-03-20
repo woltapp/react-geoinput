@@ -6,3 +6,13 @@
   padding: 5px 8px;
   width: 240px;
 }
+
+.geoDestination {
+  font-size: 15px;
+  border-radius: 3px;
+}
+
+.loadingContainer {
+  margin-top: 10px;
+  font-size: 15px;
+}

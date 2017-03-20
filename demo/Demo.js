@@ -19,6 +19,8 @@ class DemoView extends Component {
     return (
       <div>
         <DemoInput
+          loadingElement={<div className={styles.loadingContainer}>Loading ...</div>}
+          geoDestinationClassName={styles.geoDestination}
           addressInput={{
             className: styles.addressInput,
             onChange: this.onAddressChange,

@@ -42,7 +42,9 @@ const defaultOptions = {
   }),
 };
 
-function createGeoInput(options = defaultOptions) {
+function createGeoInput(opts) {
+  const options = { ...defaultOptions, ...opts };
+
   return WrappedInput => class GeoInput extends Component {
     static displayName = `GeoInput(${getDisplayName(WrappedInput)})`;
 

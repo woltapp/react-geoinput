@@ -51,6 +51,7 @@ const DefaultGeoInput = ({
   className,
   addressInput,
   geoDestinationInput,
+  geoDestinationClassName,
   geoDestinationTableClassName,
   loadingGeoDestination,
   loadingElement,
@@ -71,7 +72,7 @@ const DefaultGeoInput = ({
     {!!loadingGeoDestination && loadingElement}
 
     {!loadingGeoDestination && geoDestinationInput.value && (
-      <div className={styles.geoDestionation}>
+      <div className={cx(styles.geoDestionation, geoDestinationClassName)}>
         <table className={cx(geoDestinationTableClassName, styles.geoDestinationTable)}>
           <tbody>
             {geoDestinationFields.map(field => (
@@ -99,6 +100,7 @@ DefaultGeoInput.propTypes = {
   addressInput: PropTypes.object.isRequired,
   className: PropTypes.string,
   geoDestinationInput: PropTypes.object.isRequired,
+  geoDestinationClassName: PropTypes.string,
   geoDestinationTableClassName: PropTypes.string,
   loadingElement: PropTypes.node,
   loadingGeoDestination: PropTypes.bool,
