@@ -12,7 +12,10 @@
   "parser": "babel-eslint",
   "rules": {
     "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
     "react/no-multi-comp": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "react/require-default-props": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   }
 }

@@ -1,0 +1,26 @@
+.root {
+  display: inline-block;
+  position: relative;
+}
+
+.input {
+}
+
+.predictions {
+  width: 100%;
+  position: absolute;
+  top: 38px;
+
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(32, 32, 36, 0.12), 0 2px 4px 0 rgba(32, 32, 36, 0.08);
+}
+
+.prediction {
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.predictions:not(:hover) .activePrediction, .prediction:hover {
+  background-color: #ddd;
+}

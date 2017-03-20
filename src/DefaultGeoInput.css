@@ -1,0 +1,11 @@
+.geoDestionation {
+  margin-top: 10px;
+}
+
+.geoDestinationTable {
+  border: 1px solid lightgrey;
+}
+
+.geoDestinationTable td {
+  padding: 5px;
+}
