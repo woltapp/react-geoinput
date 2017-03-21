@@ -2,15 +2,31 @@
   "name": "react-geoinput",
   "version": "0.9.0",
   "description": "Get suggestions and coordinates for geo locations",
-  "main": "./lib/index.js",
+  "main": "./lib/react-geoinput.js",
   "scripts": {
     "build": "webpack -p --config webpack.config.js --progress --colors",
     "test": "cross-env NODE_ENV=test karma start",
     "test:watch": "npm run test -- --singleRun=false",
     "demo": "webpack-dev-server --config webpack.demo.config.js --content-base demo/"
   },
-  "author": "Wolt Enterprises",
+  "author": "nygardk",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woltapp/react-geoinput"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "react-component",
+    "geo",
+    "geocoding",
+    "geodestination",
+    "geolocation",
+    "input",
+    "google",
+    "maps"
+  ],
   "peerDependencies": {
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
