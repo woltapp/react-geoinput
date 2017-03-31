@@ -7,6 +7,7 @@ import styles from './PredictiveInput.css';
 const PredictiveInput = ({
   activePredictionId,
   className,
+  debounceTimeout,
   containerClassName,
   containerStyle,
   predictions,
@@ -15,7 +16,11 @@ const PredictiveInput = ({
   ...rest
 }) => (
   <div className={cx(containerClassName, styles.root)} style={containerStyle}>
-    <DebounceInput {...rest} debounceTimeout={300} className={cx(className, styles.input)} />
+    <DebounceInput
+      {...rest}
+      debounceTimeout={debounceTimeout}
+      className={cx(className, styles.input)}
+    />
 
     {predictions && !!predictions.length && (
       <div className={cx(styles.predictions, predictionsClassName)}>
@@ -39,6 +44,7 @@ PredictiveInput.propTypes = {
   className: PropTypes.string,
   containerClassName: PropTypes.string,
   containerStyle: PropTypes.object,
+  debounceTimeout: PropTypes.number,
   activePredictionId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   predictions: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -47,6 +53,10 @@ PredictiveInput.propTypes = {
   })),
   predictionsClassName: PropTypes.string,
   predictionItemClassName: PropTypes.string,
+};
+
+PredictiveInput.defaultProps = {
+  debounceTimeout: 300,
 };
 
 export default PredictiveInput;

@@ -38,11 +38,13 @@ and geocoding an address
 
 ## Examples
 
-#### Simple
+#### Quick start
 
 ```jsx
 import React, { Component } from 'react';
 import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
+
+const SimpleInput = createGeoInput(DefaultGeoInput);
 
 class Example extends Component {
   state = {
@@ -56,7 +58,7 @@ class Example extends Component {
   render() {
     return (
       <div>
-        <DemoInput
+        <SimpleInput
           addressInput={{
             onChange: this.onAddressChange,
             value: this.state.address,
@@ -78,10 +80,10 @@ class Example extends Component {
 import React, { Component } from 'react';
 import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
 
-const GeoInput = reactGeoInput()(DefaultGeoInput);
+const GeoInput = createGeoInput(DefaultGeoInput);
 
 const GeoField = fields => (
-  <GeocodeInput
+  <GeoInput
     addressInput={fields.address.input}
     geoDestinationInput={fields.destination.input}
   />
@@ -96,7 +98,71 @@ Use with `redux-form`'s `Fields` component:
 
 ## API Documentation
 
+### Overview
+
+React-geoinput exposes one higher order component (`createGeoInput`) and three regular
+stateless React components (`DefaultGeoInput`, `GeoAddressInput`, `PredictiveInput`).
+
+`createGeoInput` contains the main logic to handle fetching location
+suggestions from the Google Maps API and to geocode the typed
+address to a location object, which includes e.g. coordinates and parsed
+location fields. In fact, `createGeoInput` provides __two__ inputs simultaneously:
+typed address and geocoded location. Generally you'll want to store the information
+separately, since address is the arbitrary string typed by user and location
+is the accurate and exact geolocation.
+
+`DefaultInput` exists to get you quickly started with the library. It contains
+opinionated styles and structure, which is a good starting point. If it works
+for you, you can customize it via the props, otherwise you will have to use
+it simply as a starting point to create your own completely custom renderer.
+`DefaultInput` takes leverage of `GeoAddressInput` to provide the bare-bones
+input with predictions (suggestions).
+
+`GeoAddressInput` is provided as a convenience component, which simply maps
+the predictions (suggestions) from `createGeoInput()` to `PredictiveInput`.
+
+`PredictiveInput` is provided as a utility component to provide a simple
+input field with predictions -- it is not coupled to geocoding or locations anyhow.
+It should be applicable for most cases and supports styling via props.
+`PredictiveInput` uses `DebounceInput` from `react-debounce-input` to reduce
+the amount of requests made to the Google Maps API.
+
+### `createGeoInput(input: Component, <options: Object>)`
+
+`createGeoInput` takes two arguments, first of which is your custom input (or `DefaultGeoInput`),
+and the second one is options object.
+
+##### The following options can be set:
+
+* __`serializePrediction`__ _(Function)_: A function that takes `prediction` object
+from the Google Maps API as an argument and turns it into a string that is suggested.
+The structure of the `prediction` object is not included in this documentation.
+
+* __`serializeGeoDestination`__ _(Function)_: A function that takes `geoDestination` object
+from the Google Maps API as an argument and turns it to another object. By default it maps
+the `geoDestination` keys as following: `route->street`, `street_number->streetNumber`,
+`subpremise->subpremise`, `locality->city`, `country->country`, `postal_code->postalCode`,
+`{ geometry }->{ lat, lng},viewport`. The structure of the `geoDestination` object is not
+included in this documentation.
+
+_Note: you won't need to change these options unless you are completely missing
+an important value from the Google Maps API._
+
+
+### `DefaultInput`
+
 TODO
+
+
+### `GeoAddressInput`
+
+TODO
+
+
+### `PredictiveInput`
+
+TODO
+
 
 ## License
 

@@ -42,10 +42,10 @@ const defaultOptions = {
   }),
 };
 
-function createGeoInput(opts) {
+function createGeoInput(WrappedInput, opts) {
   const options = { ...defaultOptions, ...opts };
 
-  return WrappedInput => class GeoInput extends Component {
+  return class GeoInput extends Component {
     static displayName = `GeoInput(${getDisplayName(WrappedInput)})`;
 
     static propTypes = {
@@ -165,6 +165,12 @@ function createGeoInput(opts) {
       this.setState({ selectedPrediction: prediction });
     }
 
+    submitAddress = () => {
+      this.setState({ activeIndex: undefined, predictions: [] });
+
+      this.loadGeoDestination();
+    }
+
     handleInputChange = (event) => {
       this.props.addressInput.onChange(event.target.value);
       this.loadPredictions(event.target.value);
@@ -267,6 +273,7 @@ function createGeoInput(opts) {
             onKeyDown: this.handleInputKeyDown,
           }}
           geoDestinationInput={this.props.geoDestinationInput}
+          submitAddress={this.submitAddress}
         />
       );
     }

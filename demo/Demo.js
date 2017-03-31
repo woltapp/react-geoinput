@@ -3,7 +3,7 @@ import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
 
 import styles from './Demo.css';
 
-const DemoInput = createGeoInput()(DefaultGeoInput);
+const DemoInput = createGeoInput(DefaultGeoInput);
 
 class DemoView extends Component {
   state = {
