@@ -31,6 +31,9 @@ Make `window.google.maps` available e.g. with:
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=YOUR_API_KEY_HERE"></script>
 ```
 
+link: [Google Maps JavaScript API
+ / get API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
 ## Try demo locally
 
 ```
