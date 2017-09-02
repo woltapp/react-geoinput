@@ -99,6 +99,7 @@ function createGeoInput(WrappedInput, opts) {
       } = this.props;
 
       if (!input) {
+        this.setState({ predictions: [] });
         return;
       }
 
