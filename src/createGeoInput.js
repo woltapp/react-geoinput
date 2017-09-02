@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types, react/no-find-dom-node */
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import getDisplayName from 'react-display-name';
 
@@ -45,7 +45,7 @@ const defaultOptions = {
 function createGeoInput(WrappedInput, opts) {
   const options = { ...defaultOptions, ...opts };
 
-  return class GeoInput extends Component {
+  return class GeoInput extends PureComponent {
     static displayName = `GeoInput(${getDisplayName(WrappedInput)})`;
 
     static propTypes = {
