@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-geoinput.svg)](https://badge.fury.io/js/react-geoinput)
 [![Download Count](http://img.shields.io/npm/dm/react-geoinput.svg?style=flat-square)](https://npmjs.org/package/react-geoinput)
 
-> Redux-form compatible geolocation suggestions and exact coordinates with Google Maps API.
+> Redux-form compatible geolocation suggestions and coordinates with Google Maps API.
 
 <img src="demo.gif" alt="react-geoinput example" />
 
