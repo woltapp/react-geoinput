@@ -33,12 +33,12 @@ npm start
 
 ## What problem does the library solve?
 
-React-geoinput makes it a breeze to combine geolocation suggestion
-and geocoding an address
+React-geoinput makes it a breeze to combine both __geolocation suggestion__
+and __geocoding an address__. Generally other libraries do only either at once. A good use case for this library is to be able to turn an address into coordinates and verify that the interpreted address was correct in textual format.
 
 ## Examples
 
-#### Quick start
+### Quick start
 
 ```jsx
 import React, { Component } from 'react';
@@ -74,10 +74,11 @@ class Example extends Component {
 }
 ```
 
-#### Usage with Redux-form
+### Usage with Redux-form
 
 ```jsx
-import React, { Component } from 'react';
+import React from 'react';
+import { Fields } from 'redux-form';
 import { createGeoInput, DefaultGeoInput } from 'react-geoinput';
 
 const GeoInput = createGeoInput(DefaultGeoInput);
@@ -109,14 +110,14 @@ address to a location object, which includes e.g. coordinates and parsed
 location fields. In fact, `createGeoInput` provides __two__ inputs simultaneously:
 typed address and geocoded location. Generally you'll want to store the information
 separately, since address is the arbitrary string typed by user and location
-is the accurate and exact geolocation.
+is the accurate exact geolocation.
 
 `DefaultInput` exists to get you quickly started with the library. It contains
 opinionated styles and structure, which is a good starting point. If it works
-for you, you can customize it via the props, otherwise you will have to use
-it simply as a starting point to create your own completely custom renderer.
-`DefaultInput` takes leverage of `GeoAddressInput` to provide the bare-bones
-input with predictions (suggestions).
+for you, you can customize it via the props, otherwise you can use
+it simply as a starting point to create your own completely custom input component.
+`DefaultInput` uses `GeoAddressInput` underneath to provide the bare-bones
+input with predictions (=suggestions).
 
 `GeoAddressInput` is provided as a convenience component, which simply maps
 the predictions (suggestions) from `createGeoInput()` to `PredictiveInput`.
