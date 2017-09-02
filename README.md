@@ -18,8 +18,17 @@
 
 ## Install
 
+1. add `react-geoinput` as dependency
 ```
 npm install --save react-geoinput
+```
+
+2. include Google Maps API
+
+Make `window.google.maps` available e.g. with:
+
+```html
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=YOUR_API_KEY_HERE"></script>
 ```
 
 ## Try demo locally
