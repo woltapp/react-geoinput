@@ -5,9 +5,11 @@
   "main": "./lib/react-geoinput.js",
   "scripts": {
     "start": "npm run demo",
-    "build": "webpack --config webpack.config.js --progress --colors",
+    "build": "npm run lint && npm run build-src",
+    "build-src": "babel ./src --out-dir ./lib",
     "test": "cross-env NODE_ENV=test karma start",
     "test:watch": "npm run test -- --singleRun=false",
+    "lint": "eslint --ext .jsx ./src ./demos",
     "demo": "webpack-dev-server --config webpack.demo.config.js --content-base demo/"
   },
   "author": "nygardk",
