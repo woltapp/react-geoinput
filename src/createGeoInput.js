@@ -1,4 +1,4 @@
-/* eslint-disable react/forbid-prop-types, react/no-find-dom-node */
+/* eslint-disable react/forbid-prop-types, react/no-find-dom-node, react/sort-comp */
 import React, { PureComponent, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import getDisplayName from 'react-display-name';
