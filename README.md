@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-geoinput.svg)](https://badge.fury.io/js/react-geoinput)
 [![Download Count](http://img.shields.io/npm/dm/react-geoinput.svg?style=flat-square)](https://npmjs.org/package/react-geoinput)
 
-> Description here.
+> Redux-form compatible geolocation suggestions and exact coordinates with Google Maps API.
 
 <img src="demo.gif" alt="react-geoinput example" />
 
@@ -97,6 +97,8 @@ Use with `redux-form`'s `Fields` component:
 <Fields names={['address', 'destination']} component={GeoField} />
 ```
 
+<hr />
+
 ## API Documentation
 
 ### Overview
@@ -112,11 +114,11 @@ typed address and geocoded location. Generally you'll want to store the informat
 separately, since address is the arbitrary string typed by user and location
 is the accurate exact geolocation.
 
-`DefaultInput` exists to get you quickly started with the library. It contains
+`DefaultGeoInput` exists to get you quickly started with the library. It contains
 opinionated styles and structure, which is a good starting point. If it works
 for you, you can customize it via the props, otherwise you can use
 it simply as a starting point to create your own completely custom input component.
-`DefaultInput` uses `GeoAddressInput` underneath to provide the bare-bones
+`DefaultGeoInput` uses `GeoAddressInput` underneath to provide the bare-bones
 input with predictions (=suggestions).
 
 `GeoAddressInput` is provided as a convenience component, which simply maps
@@ -130,8 +132,8 @@ the amount of requests made to the Google Maps API.
 
 ### `createGeoInput(input: Component, <options: Object>)`
 
-`createGeoInput` takes two arguments, first of which is your custom input (or `DefaultGeoInput`),
-and the second one is options object.
+`createGeoInput` is a higher order component that takes two arguments, first of which is your custom input (or `DefaultGeoInput`),
+and the second one is options object. It can be wrapped with a custom input component, such as with the provided `DefaultGeoInput`. The beef of this library's logic is in this HoC; thus you are encouraged to make a custom implementation of the input.
 
 ##### The following options can be set:
 
@@ -146,24 +148,65 @@ the `geoDestination` keys as following: `route->street`, `street_number->streetN
 `{ geometry }->{ lat, lng},viewport`. The structure of the `geoDestination` object is not
 included in this documentation.
 
-_Note: you won't need to change these options unless you are completely missing
+> _Note: you won't need to change these options unless you know you are missing
 an important value from the Google Maps API._
 
 
-### `DefaultInput`
+### `DefaultGeoInput`
 
-TODO
+`DefaultGeoInput` displays an input for typing the address. Predictions (=suggestions) will
+be shown for the address with `PredictiveInput`. On predicted address selection the `geoDestionation`
+will be also rendered.
 
+> _Note: a good way to get started with your completely custom input is to copy the implementation of
+`DefaultGeoInput` and modify it._
+
+#### Props
+
+* `activeIndex (number)`: control the selected index of location suggestion
+* `addressInput (object.isRequired)`: input controls, such as `onChange`, `value`
+* `className (string)`
+* `geoDestinationInput (object.isRequired)`: input controls, such as `onChange`, `value`
+* `geoDestinationClassName (string)`
+* `geoDestinationTableClassName (string)`
+* `loadingElement (node)`: element to display while loading geo destination
+* `loadingGeoDestination (bool)`: control when to show `loadingElement`
+* `onPredictionClick (func.isRequired)`: handle suggestion click, takes prediction `index`
+* `predictions (array.isRequired)`: array of predictions from Google Maps API
+* `style (object)`
 
 ### `GeoAddressInput`
 
-TODO
+#### Props
+
+* `activeIndex (number)`: control the selected index of location suggestion
+* `className (string)`
+* `onPredictionClick (func.isRequired)`: handles prediction click, takes prediction `index`
+* `onChange (func.isRequired)`: handle for address input change
+* `predictions (array.isRequired)`: array of predictions from Google Maps API
+* `style (object)`
 
 
 ### `PredictiveInput`
 
-TODO
+#### Props
 
+* `className (string)`
+* `containerClassName (string)`:
+* `containerStyle (object)`:
+* `debounceTimeout (number)`: time for debounce in ms
+* `activePredictionId (string|number)`: control active prediction
+* `predictions (arrayOf(predictionPropType))`: array of predictions (see below)
+* `predictionsClassName (string)`
+* `predictionItemClassName (string)`
+
+```js
+predictionPropType = PropTypes.shape({
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  label: PropTypes.node,
+  onClick: PropTypes.func,
+})
+```
 
 ## License
 
