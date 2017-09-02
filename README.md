@@ -27,8 +27,8 @@ npm install --save react-geoinput
 ```
 git clone git clone https://github.com/woltapp/react-geoinput.git
 cd react-geoinput
-npm install
-npm start
+yarn
+yarn start
 ```
 
 ## What problem does the library solve?
