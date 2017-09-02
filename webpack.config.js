@@ -2,18 +2,24 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     publicPath: 'lib/',
     path: path.resolve(__dirname, 'lib'),
     filename: 'react-geoinput.js',
-    sourceMapFilename: 'react-geoinput.map',
+    sourceMapFilename: 'react-geoinput.js.map',
     library: 'react-geoinput',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
   externals: {
     'react': 'react',
+    'react-dom': 'react-dom',
     'react-redux': 'react-redux',
     'redux-saga': 'redux-saga',
+    'react-debounce-input': 'react-debounce-input',
+    'react-display-name': 'react-display-name',
+    'classnames': 'classnames',
   },
   module: {
     rules: [
