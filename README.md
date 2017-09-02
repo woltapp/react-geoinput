@@ -34,7 +34,7 @@ npm start
 ## What problem does the library solve?
 
 React-geoinput makes it a breeze to combine both __geolocation suggestion__
-and __geocoding an address__. Generally other libraries do only either at once. A good use case for this library is to be able to turn an address into coordinates and verify that the interpreted address was correct in textual format.
+and __geocoding an address__. Generally other libraries do only either at once. A good use case for this library is to be able to turn an address into coordinates and verify that the interpreted address was correct in textual format. Moreover, this library allows complete customization of the UI, and only provides components to get you quickly started!
 
 ## Examples
 
