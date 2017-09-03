@@ -45,7 +45,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              localIdentName: 'react-geoinput___[name]__[local]',
             },
           },
           { loader: 'postcss-loader' },
