@@ -43,7 +43,7 @@ yarn
 yarn start
 ```
 
-* `1_quickstart` demonstrates the use `DefaultGeoInput`
+* `1_quickstart` demonstrates the use of `DefaultGeoInput`
 * `2_barebones` uses only `createGeoInput` and demonstrates how to use the API to create your own input
 
 ## What problem does the library solve?
