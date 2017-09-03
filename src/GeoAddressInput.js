@@ -6,6 +6,7 @@ import styles from './GeoAddressInput.css';
 
 const GeoAddressInput = ({
   className,
+  containerClassName,
   predictions,
   activeIndex,
   onChange,
@@ -16,7 +17,8 @@ const GeoAddressInput = ({
   <PredictiveInput
     {...rest}
     onChange={onChange}
-    className={cx(className, styles.root)}
+    containerClassName={cx(containerClassName, styles.container)}
+    className={cx(className, styles.predictiveInput)}
     activePredictionId={activeIndex}
     predictions={predictions ? predictions.map((prediction, index) => ({
       id: index,
@@ -30,6 +32,7 @@ const GeoAddressInput = ({
 GeoAddressInput.propTypes = {
   activeIndex: PropTypes.number,
   className: PropTypes.string,
+  containerClassName: PropTypes.string,
   onPredictionClick: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   predictions: PropTypes.array.isRequired,
