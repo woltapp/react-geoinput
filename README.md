@@ -34,7 +34,7 @@ Make `window.google.maps` available e.g. with:
 link: [Google Maps JavaScript API
  / get API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-## Try demo locally
+## Try demos locally
 
 ```
 git clone git clone https://github.com/woltapp/react-geoinput.git
@@ -42,6 +42,9 @@ cd react-geoinput
 yarn
 yarn start
 ```
+
+* `1_quickstart` demonstrates the use `DefaultGeoInput`
+* `2_barebones` uses only `createGeoInput` and demonstrates how to use the API to create your own input
 
 ## What problem does the library solve?
 
