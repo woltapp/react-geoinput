@@ -20,6 +20,7 @@ module.exports = {
     'react-debounce-input': 'react-debounce-input',
     'react-display-name': 'react-display-name',
     'classnames': 'classnames',
+    'prop-types': 'prop-types',
   },
   module: {
     rules: [

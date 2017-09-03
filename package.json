@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
+    "prop-types": "^15.5.10",
     "react-debounce-input": "^3.0.1",
     "react-display-name": "^0.2.3"
   }

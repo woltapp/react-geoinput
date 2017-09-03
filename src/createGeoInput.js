@@ -1,5 +1,6 @@
 /* eslint-disable react/forbid-prop-types, react/no-find-dom-node, react/sort-comp */
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import getDisplayName from 'react-display-name';
 
