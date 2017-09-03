@@ -3,9 +3,13 @@ const path = require('path');
 module.exports = {
   devtool: process.env !== 'PRODUCTION' ? '#cheap-module-source-map' : false,
   entry: {
-    demo: [
+    '1_quickstart': [
       'babel-polyfill',
-      './demo/index.js',
+      './demos/1_quickstart/index.js',
+    ],
+    '2_barebones': [
+      'babel-polyfill',
+      './demos/2_barebones/index.js',
     ],
   },
   resolve: {
@@ -13,10 +17,13 @@ module.exports = {
       'react-geoinput': path.resolve(__dirname, 'src/index.js'),
     },
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'demos'),
+  },
   output: {
-    filename: '[name].js',
+    filename: '[name]/bundle.js',
     publicPath: '/',
-    path: path.resolve(__dirname, 'demo'),
+    path: path.resolve(__dirname, 'demos'),
   },
   module: {
     rules: [
