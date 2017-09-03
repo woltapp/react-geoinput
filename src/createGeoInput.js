@@ -127,13 +127,15 @@ function createGeoInput(WrappedInput, opts) {
         });
     }
 
-    loadGeoDestination = () => {
+    loadGeoDestination = (address) => {
       const { addressInput, geoDestinationInput } = this.props;
 
-      if (addressInput.value) {
+      const addressValue = address || addressInput.value;
+
+      if (addressValue) {
         this.setState({ loadingGeoDestination: true });
 
-        geocodeByAddress(addressInput.value).then((results) => {
+        geocodeByAddress(addressValue).then((results) => {
           const result = results && results.length
             ? options.serializeGeoDestination(results[0])
             : {};
@@ -255,9 +257,11 @@ function createGeoInput(WrappedInput, opts) {
         throw new Error('A valid prediction index must be given as 1st argument for `onPredictionClick`');
       }
 
+      const selectedPrediction = predictions[index];
+
       this.setState({ activeIndex: undefined, predictions: [] });
-      this.onPredictionSelect(predictions[index]);
-      this.loadGeoDestination();
+      this.onPredictionSelect(selectedPrediction);
+      this.loadGeoDestination(options.serializePrediction(selectedPrediction));
     }
 
     render() {
