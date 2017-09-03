@@ -26,8 +26,7 @@ const getAddressFieldFromGeoDestination = (fieldName, geoDestination) => {
 };
 
 const defaultOptions = {
-  serializePrediction: prediction =>
-    `${prediction.structured_formatting.main_text} ${prediction.structured_formatting.secondary_text || ''}`,
+  serializePrediction: prediction => `${prediction.description}`,
   serializeGeoDestination: geoDestination => ({
     street: getAddressFieldFromGeoDestination('route', geoDestination),
     streetNumber: getAddressFieldFromGeoDestination('street_number', geoDestination),
