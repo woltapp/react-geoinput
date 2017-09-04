@@ -37,10 +37,10 @@ link: [Google Maps JavaScript API
 ## Try demos locally
 
 ```
-git clone git clone https://github.com/woltapp/react-geoinput.git
-cd react-geoinput
-yarn
-yarn start
+$ git clone git clone https://github.com/woltapp/react-geoinput.git
+$ cd react-geoinput
+$ yarn
+$ yarn start
 ```
 
 * `1_quickstart` demonstrates the use of `DefaultGeoInput`
