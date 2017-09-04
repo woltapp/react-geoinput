@@ -37,7 +37,7 @@ link: [Google Maps JavaScript API
 ## Try demos locally
 
 ```
-$ git clone git clone https://github.com/woltapp/react-geoinput.git
+$ git clone https://github.com/woltapp/react-geoinput.git
 $ cd react-geoinput
 $ yarn
 $ yarn start
