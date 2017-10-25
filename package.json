@@ -1,6 +1,6 @@
 {
   "name": "react-geoinput",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Geolocation suggestions and coordinates with Google Maps API for React",
   "main": "./lib/react-geoinput.js",
   "scripts": {
