@@ -1,5 +1,7 @@
 # react-geoinput
 
+:warning: This library has been deprecated and is being no longer maintained :warning:
+
 [![npm version](https://badge.fury.io/js/react-geoinput.svg)](https://badge.fury.io/js/react-geoinput)
 [![Download Count](http://img.shields.io/npm/dm/react-geoinput.svg?style=flat-square)](https://npmjs.org/package/react-geoinput)
 
